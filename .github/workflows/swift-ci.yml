@@ -75,18 +75,12 @@ jobs:
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
                   installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
 
-                  SWIFTLY_BIN="$(command -v swiftly)"
-                  echo "Swiftly found at: $SWIFTLY_BIN"
-
-                  swiftly init --quiet-shell-followup -o -y
-                  . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
-                  hash -r
+                  export PATH="$HOME/.swiftly/bin:$PATH"
+                  echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
 
                   swiftly --version
                   swiftly install 6.2
                   swiftly use 6.2 --global-default --yes
-
-                  echo "$HOME/.swiftly/bin" >> $GITHUB_PATH
 
             # -------------------------------------------------
             # Windows — Swift + MSVC via WinGet (official)
