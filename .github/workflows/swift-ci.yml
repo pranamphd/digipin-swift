@@ -70,12 +70,18 @@ jobs:
             - name: Install Swift (macOS via Swiftly pkg)
               if: runner.os == 'macOS'
               run: |
+                  set -euxo pipefail
+
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
                   installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
 
-                  export PATH="$HOME/.swiftly/bin:$PATH"
+                  export SWIFTLY_BIN="$HOME/.local/share/swiftly/bin"
+                  export PATH="$SWIFTLY_BIN:$PATH"
 
-                  ~/.swiftly/bin/swiftly init --quiet-shell-followup -o -y
+                  ls -la "$SWIFTLY_BIN"
+                  "$SWIFTLY_BIN/swiftly" --version
+
+                  swiftly init --quiet-shell-followup -o -y
                   . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
                   hash -r
 
