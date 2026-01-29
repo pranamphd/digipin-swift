@@ -96,8 +96,10 @@ jobs:
               run: |
                   set -euxo pipefail
 
-                  . "$HOME/.swiftly/env.sh"
-                  
+                  export SWIFTLY_HOME_DIR=/Users/runner/.swiftly
+                  export SWIFTLY_BIN_DIR=/Users/runner/.swiftly/bin
+                  export SWIFTLY_TOOLCHAINS_DIR=/Users/runner/Library/Developer/Toolchains
+
                   echo "$SWIFTLY_HOME_DIR" >> "$GITHUB_PATH"
                   echo "$SWIFTLY_BIN_DIR" >> "$GITHUB_PATH"
                   echo "$SWIFTLY_TOOLCHAINS_DIR" >> "$GITHUB_PATH"
