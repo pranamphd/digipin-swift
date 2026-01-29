@@ -76,7 +76,9 @@ jobs:
                              --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 `
                              --add Microsoft.VisualStudio.Component.VC.Tools.ARM64"
 
-                  winget install --id Swift.Toolchain -e
+                  winget install --id Swift.Toolchain -e `
+                    --accept-source-agreements `
+                    --accept-package-agreements
 
             # -------------------------------------------------
             # Core CI steps
