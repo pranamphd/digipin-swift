@@ -24,7 +24,7 @@ jobs:
             fail-fast: false
             matrix:
                 os:
-                    - ubuntu-latest
+                    - ubuntu-22.04
                     - macos-latest
                     - windows-latest
 
@@ -51,9 +51,6 @@ jobs:
             - name: Install Swift (macOS via Swiftly pkg)
               if: runner.os == 'macOS'
               run: |
-                  export SWIFTLY_PLATFORM=ubuntu22.04
-                  export SWIFTLY_ASSUME_YES=1
-
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
                   installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
 
