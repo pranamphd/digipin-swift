@@ -85,15 +85,13 @@ jobs:
 
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
                   installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
+
+            - name: Initialize Swiftly (macOS)
+              if: matrix.platform == 'macos'
+              run: |
                   ~/.swiftly/bin/swiftly init --quiet-shell-followup && \
                   . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh" && \
                   hash -r
-
-            - name: Configure Swiftly PATH (macOS)
-              if: matrix.platform == 'macos'
-              run: |
-                  mkdir -p "$HOME/.swiftly/bin"
-                  echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
 
             # -------------------------------------------------
             # Select Swift toolchain (Swiftly)
