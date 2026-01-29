@@ -121,17 +121,29 @@ jobs:
                     --accept-source-agreements `
                     --accept-package-agreements
 
-            - name: Locate swift.exe (Windows)
+            - name: Locate Swift toolchain (Windows)
               if: matrix.platform == 'windows'
               shell: pwsh
               run: |
-                  Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WindowsApps" -Filter swift*
+                  $paths = @(
+                      "C:\Library\Developer\Toolchains",
+                      "C:\Program Files\Swift"
+                  )
 
-            - name: Add Swift to PATH (Windows)
-              if: matrix.platform == 'windows'
-              shell: pwsh
-              run: |
-                  echo "$env:LOCALAPPDATA\Microsoft\WindowsApps" Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+                  foreach ($base in $paths) {
+                      if (Test-Path $base) {
+                        $swift = Get-ChildItem $base -Recurse -Filter swift.exe -ErrorAction SilentlyContinue | Select-Object -First 1
+                        if ($swift) {
+                          $bin = Split-Path $swift.FullName
+                          Write-Host "Found swift at $bin"
+                          $bin | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+                          exit 0
+                        }
+                      }
+                  }
+
+                  Write-Error "swift.exe not found"
+                  exit 1
 
             # -------------------------------------------------
             # Core CI steps
