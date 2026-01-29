@@ -1,102 +1,102 @@
 name: CI — digipin-swift
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "Sources/**"
-      - "Tests/**"
-      - "Package.swift"
-      - ".github/workflows/ci.yml"
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
+    push:
+        branches: [main]
+        paths:
+            - "Sources/**"
+            - "Tests/**"
+            - "Package.swift"
+            - ".github/workflows/ci.yml"
+    pull_request:
+        branches: [main]
+    workflow_dispatch:
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  test:
-    name: Build & Test (${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
+    test:
+        name: Build & Test (${{ matrix.os }})
+        runs-on: ${{ matrix.os }}
 
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-          - windows-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                os:
+                    - ubuntu-latest
+                    - macos-latest
+                    - windows-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          fetch-depth: 0
+        steps:
+            - name: Checkout
+              uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+              with:
+                  fetch-depth: 0
 
-      # -------------------------------------------------
-      # Linux — Swiftly (official script)
-      # -------------------------------------------------
-      - name: Install Swift (Linux via Swiftly)
-        if: runner.os == 'Linux'
-        run: |
-          curl --proto '=https' -fsSL https://swiftlang.github.io/swiftly/swiftly-install.sh | bash
-          echo "$HOME/.swiftly/bin" >> $GITHUB_PATH
-          swiftly install 6.2
-          swiftly use 6.2
+            # -------------------------------------------------
+            # Linux — Swiftly (official script)
+            # -------------------------------------------------
+            - name: Install Swift (Linux via Swiftly)
+              if: runner.os == 'Linux'
+              run: |
+                  curl --proto '=https' -fsSL https://swiftlang.github.io/swiftly/swiftly-install.sh | bash
+                  echo "$HOME/.swiftly/bin" >> $GITHUB_PATH
+                  swiftly install 6.2
+                  swiftly use 6.2
 
-      # -------------------------------------------------
-      # macOS — Swiftly (official pkg installer)
-      # -------------------------------------------------
-      - name: Install Swift (macOS via Swiftly pkg)
-        if: runner.os == 'macOS'
-        run: |
-          export SWIFTLY_PLATFORM=ubuntu22.04
-          export SWIFTLY_ASSUME_YES=1
-          
-          curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
-          installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
+            # -------------------------------------------------
+            # macOS — Swiftly (official pkg installer)
+            # -------------------------------------------------
+            - name: Install Swift (macOS via Swiftly pkg)
+              if: runner.os == 'macOS'
+              run: |
+                  export SWIFTLY_PLATFORM=ubuntu22.04
+                  export SWIFTLY_ASSUME_YES=1
 
-          ~/.swiftly/bin/swiftly init --quiet-shell-followup
-          . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
-          hash -r
+                  curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
+                  installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
 
-          swiftly install 6.2
-          swiftly use 6.2
+                  ~/.swiftly/bin/swiftly init --quiet-shell-followup
+                  . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
+                  hash -r
 
-          echo "$HOME/.swiftly/bin" >> $GITHUB_PATH
+                  swiftly install 6.2
+                  swiftly use 6.2
 
-      # -------------------------------------------------
-      # Windows — Swift + MSVC via WinGet (official)
-      # -------------------------------------------------
-      - name: Install Swift (Windows via winget)
-        if: runner.os == 'Windows'
-        shell: pwsh
-        run: |
-          winget install --id Microsoft.VisualStudio.2022.Community `
-            --exact --force `
-            --custom "--add Microsoft.VisualStudio.Component.Windows11SDK.22621 `
-                     --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 `
-                     --add Microsoft.VisualStudio.Component.VC.Tools.ARM64"
+                  echo "$HOME/.swiftly/bin" >> $GITHUB_PATH
 
-          winget install --id Swift.Toolchain -e
+            # -------------------------------------------------
+            # Windows — Swift + MSVC via WinGet (official)
+            # -------------------------------------------------
+            - name: Install Swift (Windows via winget)
+              if: runner.os == 'Windows'
+              shell: pwsh
+              run: |
+                  winget install --id Microsoft.VisualStudio.2022.Community `
+                    --exact --force `
+                    --custom "--add Microsoft.VisualStudio.Component.Windows11SDK.22621 `
+                             --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 `
+                             --add Microsoft.VisualStudio.Component.VC.Tools.ARM64"
 
-      # -------------------------------------------------
-      # Core CI steps
-      # -------------------------------------------------
-      - name: Verify Swift toolchain
-        run: swift --version
+                  winget install --id Swift.Toolchain -e
 
-      - name: Build (debug)
-        run: swift build --configuration debug
+            # -------------------------------------------------
+            # Core CI steps
+            # -------------------------------------------------
+            - name: Verify Swift toolchain
+              run: swift --version
 
-      - name: Test
-        run: swift test --enable-test-discovery
+            - name: Build (debug)
+              run: swift build --configuration debug
 
-      - name: Upload build artifacts (on failure)
-        if: failure()
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # 6.0.0
-        with:
-          name: swift-build-${{ matrix.os }}
-          path: |
-            .build/
+            - name: Test
+              run: swift test --enable-test-discovery
+
+            - name: Upload build artifacts (on failure)
+              if: failure()
+              uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # 6.0.0
+              with:
+                  name: swift-build-${{ matrix.os }}
+                  path: |
+                      .build/
