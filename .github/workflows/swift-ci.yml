@@ -31,8 +31,6 @@ jobs:
                       platform: linux
                     - os: macos-latest
                       platform: macos
-                    - os: windows-latest
-                      platform: windows
 
         steps:
             - name: Checkout
@@ -42,7 +40,6 @@ jobs:
 
             - name: Cache Swiftly
               id: cache-swiftly
-              if: matrix.platform != 'windows'
               uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
               with:
                   path: |
@@ -97,51 +94,9 @@ jobs:
             # Select Swift toolchain (Swiftly)
             # -------------------------------------------------
             - name: Select Swift toolchain
-              if: matrix.platform != 'windows'
               run: |
                   swiftly install $SWIFT_VERSION || true
                   swiftly use $SWIFT_VERSION -g -y
-
-            # -------------------------------------------------
-            # Windows — Swift + MSVC via WinGet (official)
-            # -------------------------------------------------
-            - name: Install Swift (Windows via winget)
-              if: matrix.platform == 'windows'
-              shell: pwsh
-              run: |
-                  winget install --id Microsoft.VisualStudio.2022.Community `
-                    --exact --force `
-                    --custom "--add Microsoft.VisualStudio.Component.Windows11SDK.22621 `
-                             --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 `
-                             --add Microsoft.VisualStudio.Component.VC.Tools.ARM64"
-
-                  winget install --id Swift.Toolchain -e `
-                    --accept-source-agreements `
-                    --accept-package-agreements
-
-            - name: Locate Swift toolchain (Windows)
-              if: matrix.platform == 'windows'
-              shell: pwsh
-              run: |
-                  $paths = @(
-                      "C:\Library\Developer\Toolchains",
-                      "C:\Program Files\Swift"
-                  )
-
-                  foreach ($base in $paths) {
-                      if (Test-Path $base) {
-                        $swift = Get-ChildItem $base -Recurse -Filter swift.exe -ErrorAction SilentlyContinue | Select-Object -First 1
-                        if ($swift) {
-                          $bin = Split-Path $swift.FullName
-                          Write-Host "Found swift at $bin"
-                          $bin | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-                          exit 0
-                        }
-                      }
-                  }
-
-                  Write-Error "swift.exe not found"
-                  exit 1
 
             # -------------------------------------------------
             # Core CI steps
