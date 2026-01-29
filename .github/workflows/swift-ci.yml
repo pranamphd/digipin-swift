@@ -68,10 +68,8 @@ jobs:
                   . "${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/env.sh"
                   hash -r
 
-            - name: Configure Swiftly PATH (Linux)
-              if: matrix.platform == 'linux'
-              run: |
-                  echo "$HOME/.local/share/swiftly/bin" >> "$GITHUB_PATH"
+                  swiftly install $SWIFT_VERSION || true
+                  swiftly use $SWIFT_VERSION -g -y
 
             # -------------------------------------------------
             # macOS — Swiftly (official pkg installer)
@@ -89,32 +87,23 @@ jobs:
                   . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
                   hash -r
 
-                  cat ${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh
-
-            - name: Configure Swiftly PATH (macOS)
-              if: matrix.platform == 'macos'
-              run: |
-                  set -euxo pipefail
-
-                  export SWIFTLY_HOME_DIR=/Users/runner/.swiftly
-                  export SWIFTLY_BIN_DIR=/Users/runner/.swiftly/bin
-                  export SWIFTLY_TOOLCHAINS_DIR=/Users/runner/Library/Developer/Toolchains
-
-                  echo "$SWIFTLY_HOME_DIR" >> "$GITHUB_PATH"
-                  echo "$SWIFTLY_BIN_DIR" >> "$GITHUB_PATH"
-                  echo "$SWIFTLY_TOOLCHAINS_DIR" >> "$GITHUB_PATH"
-
-            # -------------------------------------------------
-            # Select Swift toolchain (Swiftly)
-            # -------------------------------------------------
-            - name: Select Swift toolchain
-              run: |
                   swiftly install $SWIFT_VERSION || true
                   swiftly use $SWIFT_VERSION -g -y
 
             # -------------------------------------------------
             # Core CI steps
             # -------------------------------------------------
+
+            - name: Configure Swift PATH (Linux)
+              if: matrix.platform == 'linux'
+              run: |
+                  echo "$HOME/.local/share/swiftly/bin" >> "$GITHUB_PATH"
+
+            - name: Configure Swift PATH (macOS)
+              if: matrix.platform == 'macos'
+              run: |
+                  echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
+
             - name: Verify Swift toolchain
               run: swift --version
 
