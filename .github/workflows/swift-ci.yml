@@ -80,7 +80,7 @@ jobs:
 
                   swiftly --version
                   swiftly install 6.2
-                  swiftly use 6.2 --global-default --yes
+                  swiftly use 6.2 -g -y
 
             # -------------------------------------------------
             # Windows — Swift + MSVC via WinGet (official)
