@@ -99,6 +99,12 @@ jobs:
                     --accept-source-agreements `
                     --accept-package-agreements
 
+            - name: Add Swift to PATH (Windows)
+              if: runner.os == 'Windows'
+              shell: pwsh
+              run: |
+                  echo "C:\Program Files\Swift\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
             # -------------------------------------------------
             # Core CI steps
             # -------------------------------------------------
