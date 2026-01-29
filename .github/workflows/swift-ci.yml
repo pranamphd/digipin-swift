@@ -24,7 +24,7 @@ jobs:
             fail-fast: false
             matrix:
                 os:
-                    - ubuntu-22.04
+                    - ubuntu-latest
                     - macos-latest
                     - windows-latest
 
@@ -35,13 +35,23 @@ jobs:
                   fetch-depth: 0
 
             # -------------------------------------------------
-            # Linux — Swiftly (official script)
+            # Linux — Swiftly (official prebuilt binary)
             # -------------------------------------------------
             - name: Install Swift (Linux via Swiftly)
               if: runner.os == 'Linux'
               run: |
-                  curl --proto '=https' -fsSL https://swiftlang.github.io/swiftly/swiftly-install.sh | bash
-                  echo "$HOME/.swiftly/bin" >> $GITHUB_PATH
+                  curl --proto '=https' -fsSL \
+                      https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz \
+                      -o swiftly.tar.gz
+
+                  tar zxf swiftly.tar.gz
+                  ./swiftly init --quiet-shell-followup
+
+                  . "${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/env.sh"
+                  hash -r
+
+                  echo "$HOME/.local/bin" >> $GITHUB_PATH
+
                   swiftly install 6.2
                   swiftly use 6.2
 
