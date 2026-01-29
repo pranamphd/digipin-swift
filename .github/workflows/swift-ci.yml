@@ -73,7 +73,7 @@ jobs:
                   set -euxo pipefail
 
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
-                  installer -pkg swiftly.pkg -target /
+                  sudo installer -pkg swiftly.pkg -target /
 
                   SWIFTLY_BIN="$(command -v swiftly)"
                   echo "Swiftly found at: $SWIFTLY_BIN"
