@@ -73,18 +73,16 @@ jobs:
                   set -euxo pipefail
 
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
-                  installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
+                  installer -pkg swiftly.pkg -target /
 
-                  export SWIFTLY_BIN="$HOME/.local/share/swiftly/bin"
-                  export PATH="$SWIFTLY_BIN:$PATH"
-
-                  ls -la "$SWIFTLY_BIN"
-                  "$SWIFTLY_BIN/swiftly" --version
+                  SWIFTLY_BIN="$(command -v swiftly)"
+                  echo "Swiftly found at: $SWIFTLY_BIN"
 
                   swiftly init --quiet-shell-followup -o -y
                   . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
                   hash -r
 
+                  swiftly --version
                   swiftly install 6.2
                   swiftly use 6.2 --global-default --yes
 
