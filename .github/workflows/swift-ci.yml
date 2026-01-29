@@ -54,7 +54,7 @@ jobs:
                       -o swiftly.tar.gz
 
                   tar zxf swiftly.tar.gz
-                  ./swiftly init --quiet-shell-followup
+                  ./swiftly init --quiet-shell-followup -o -y
 
                   . "${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/env.sh"
                   hash -r
@@ -73,12 +73,12 @@ jobs:
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
                   installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
 
-                  ~/.swiftly/bin/swiftly init --quiet-shell-followup
+                  ~/.swiftly/bin/swiftly init --quiet-shell-followup -o -y
                   . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
                   hash -r
 
                   swiftly install 6.2
-                  swiftly use 6.2
+                  swiftly use 6.2 --global-default --yes
 
                   echo "$HOME/.swiftly/bin" >> $GITHUB_PATH
 
