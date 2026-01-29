@@ -99,11 +99,17 @@ jobs:
                     --accept-source-agreements `
                     --accept-package-agreements
 
+            - name: Locate swift.exe (Windows)
+              if: runner.os == 'Windows'
+              shell: pwsh
+              run: |
+                  Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WindowsApps" -Filter swift*
+
             - name: Add Swift to PATH (Windows)
               if: runner.os == 'Windows'
               shell: pwsh
               run: |
-                  echo "C:\Program Files\Swift\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+                  echo "$env:LOCALAPPDATA\Microsoft\WindowsApps" Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
             # -------------------------------------------------
             # Core CI steps
