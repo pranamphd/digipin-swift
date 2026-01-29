@@ -15,6 +15,9 @@ on:
 permissions:
     contents: read
 
+env:
+    SWIFT_VERSION: "6.2"
+
 jobs:
     test:
         name: Build & Test (${{ matrix.os }})
@@ -23,10 +26,13 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os:
-                    - ubuntu-latest
-                    - macos-latest
-                    - windows-latest
+                include:
+                    - os: ubuntu-latest
+                      platform: linux
+                    - os: macos-latest
+                      platform: macos
+                    - os: windows-latest
+                      platform: windows
 
         steps:
             - name: Checkout
@@ -35,20 +41,25 @@ jobs:
                   fetch-depth: 0
 
             - name: Cache Swiftly
+              id: cache-swiftly
+              if: matrix.platform != 'windows'
               uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
               with:
                   path: |
                       ~/.swiftly
                       ~/.local/share/swiftly
-                      ${{ env.LOCALAPPDATA }}\swiftly
-                  key: swiftly-${{ runner.os }}-swift-6.2
+                  key: swiftly-${{ matrix.platform }}-swift-${{ env.SWIFT_VERSION }}
+                  restore-keys: |
+                      swiftly-${{ matrix.platform }}-
 
             # -------------------------------------------------
             # Linux — Swiftly (official prebuilt binary)
             # -------------------------------------------------
             - name: Install Swift (Linux via Swiftly)
-              if: runner.os == 'Linux'
+              if: matrix.platform == 'linux' && steps.cache-swiftly.outputs.cache-hit != 'true'
               run: |
+                  set -euxo pipefail
+
                   curl --proto '=https' -fsSL \
                       https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz \
                       -o swiftly.tar.gz
@@ -59,34 +70,45 @@ jobs:
                   . "${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/env.sh"
                   hash -r
 
-                  echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-                  swiftly install 6.2
-                  swiftly use 6.2
+            - name: Configure Swiftly PATH (Linux)
+              if: matrix.platform == 'linux'
+              run: |
+                  echo "$HOME/.local/share/swiftly/bin" >> "$GITHUB_PATH"
 
             # -------------------------------------------------
             # macOS — Swiftly (official pkg installer)
             # -------------------------------------------------
             - name: Install Swift (macOS via Swiftly pkg)
-              if: runner.os == 'macOS'
+              if: matrix.platform == 'macos' && steps.cache-swiftly.outputs.cache-hit != 'true'
               run: |
                   set -euxo pipefail
 
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
                   installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
+                  ~/.swiftly/bin/swiftly init --quiet-shell-followup && \
+                  . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh" && \
+                  hash -r
 
-                  export PATH="$HOME/.swiftly/bin:$PATH"
+            - name: Configure Swiftly PATH (macOS)
+              if: matrix.platform == 'macos'
+              run: |
+                  mkdir -p "$HOME/.swiftly/bin"
                   echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
 
-                  swiftly --version
-                  swiftly install 6.2
-                  swiftly use 6.2 -g -y
+            # -------------------------------------------------
+            # Select Swift toolchain (Swiftly)
+            # -------------------------------------------------
+            - name: Select Swift toolchain
+              if: matrix.platform != 'windows'
+              run: |
+                  swiftly install $SWIFT_VERSION || true
+                  swiftly use $SWIFT_VERSION -g -y
 
             # -------------------------------------------------
             # Windows — Swift + MSVC via WinGet (official)
             # -------------------------------------------------
             - name: Install Swift (Windows via winget)
-              if: runner.os == 'Windows'
+              if: matrix.platform == 'windows'
               shell: pwsh
               run: |
                   winget install --id Microsoft.VisualStudio.2022.Community `
@@ -100,13 +122,13 @@ jobs:
                     --accept-package-agreements
 
             - name: Locate swift.exe (Windows)
-              if: runner.os == 'Windows'
+              if: matrix.platform == 'windows'
               shell: pwsh
               run: |
                   Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WindowsApps" -Filter swift*
 
             - name: Add Swift to PATH (Windows)
-              if: runner.os == 'Windows'
+              if: matrix.platform == 'windows'
               shell: pwsh
               run: |
                   echo "$env:LOCALAPPDATA\Microsoft\WindowsApps" Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
@@ -118,12 +140,12 @@ jobs:
               run: swift --version
 
             - name: Cache SwiftPM
-              uses: actions/cache@v4
+              uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
               with:
                   path: .build
-                  key: spm-${{ runner.os }}-${{ hashFiles('Package.swift') }}
+                  key: spm-${{ matrix.platform }}-${{ hashFiles('Package.swift') }}
                   restore-keys: |
-                      spm-${{ runner.os }}-
+                      spm-${{ matrix.platform }}-
 
             - name: Build (debug)
               run: swift build --configuration debug
