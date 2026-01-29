@@ -45,6 +45,7 @@ jobs:
                   path: |
                       ~/.swiftly
                       ~/.local/share/swiftly
+                      ~/Library/Developer/Toolchains
                   key: swiftly-${{ matrix.platform }}-swift-${{ env.SWIFT_VERSION }}
                   restore-keys: |
                       swiftly-${{ matrix.platform }}-
@@ -82,19 +83,22 @@ jobs:
 
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
                   installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
-            - name: Initialize Swiftly (macOS)
+
+                  ~/.swiftly/bin/swiftly init --quiet-shell-followup -o -y
+
+                  . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
+                  hash -r
+
+            - name: Configure Swiftly PATH (macOS)
               if: matrix.platform == 'macos'
               run: |
-                set -euxo pipefail
+                  set -euxo pipefail
 
-                ~/.swiftly/bin/swiftly init --quiet-shell-followup -o -y
-                . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
-                echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
-                hash -r
+                  . "$HOME/.swiftly/env.sh"
+                  echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
 
-                ls -la $HOME/.swiftly/bin
-                which swiftly
-                swiftly --version
+                  which swiftly
+                  swiftly --version
 
             # -------------------------------------------------
             # Select Swift toolchain (Swiftly)
