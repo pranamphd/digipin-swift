@@ -97,9 +97,6 @@ jobs:
                   . "$HOME/.swiftly/env.sh"
                   echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
 
-                  which swiftly
-                  swiftly --version
-
             # -------------------------------------------------
             # Select Swift toolchain (Swiftly)
             # -------------------------------------------------
