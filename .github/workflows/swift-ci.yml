@@ -20,17 +20,8 @@ env:
 
 jobs:
     test:
-        name: Build & Test (${{ matrix.os }})
-        runs-on: ${{ matrix.os }}
-
-        strategy:
-            fail-fast: false
-            matrix:
-                include:
-                    - os: ubuntu-latest
-                      platform: linux
-                    - os: macos-latest
-                      platform: macos
+        name: Build & Test
+        runs-on: ubuntu-latest
 
         steps:
             - name: Checkout
@@ -45,16 +36,12 @@ jobs:
                   path: |
                       ~/.swiftly
                       ~/.local/share/swiftly
-                      ~/Library/Developer/Toolchains
-                  key: swiftly-${{ matrix.platform }}-swift-${{ env.SWIFT_VERSION }}
+                  key: swiftly-${{ runner.os }}-swift-${{ env.SWIFT_VERSION }}
                   restore-keys: |
-                      swiftly-${{ matrix.platform }}-
+                      swiftly-${{ runner.os }}-
 
-            # -------------------------------------------------
-            # Linux — Swiftly (official prebuilt binary)
-            # -------------------------------------------------
             - name: Install Swift (Linux via Swiftly)
-              if: matrix.platform == 'linux' && steps.cache-swiftly.outputs.cache-hit != 'true'
+              if: steps.cache-swiftly.outputs.cache-hit != 'true'
               run: |
                   set -euxo pipefail
 
@@ -72,37 +59,12 @@ jobs:
                   swiftly use $SWIFT_VERSION -g -y
 
             # -------------------------------------------------
-            # macOS — Swiftly (official pkg installer)
-            # -------------------------------------------------
-            - name: Install Swift (macOS via Swiftly pkg)
-              if: matrix.platform == 'macos' && steps.cache-swiftly.outputs.cache-hit != 'true'
-              run: |
-                  set -euxo pipefail
-
-                  curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
-                  installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
-
-                  ~/.swiftly/bin/swiftly init --quiet-shell-followup -o -y
-
-                  . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
-                  hash -r
-
-                  swiftly install $SWIFT_VERSION || true
-                  swiftly use $SWIFT_VERSION -g -y
-
-            # -------------------------------------------------
             # Core CI steps
             # -------------------------------------------------
 
             - name: Configure Swift PATH (Linux)
-              if: matrix.platform == 'linux'
               run: |
                   echo "$HOME/.local/share/swiftly/bin" >> "$GITHUB_PATH"
-
-            - name: Configure Swift PATH (macOS)
-              if: matrix.platform == 'macos'
-              run: |
-                  echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
 
             - name: Verify Swift toolchain
               run: swift --version
@@ -111,9 +73,9 @@ jobs:
               uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
               with:
                   path: .build
-                  key: spm-${{ matrix.platform }}-${{ hashFiles('Package.swift') }}
+                  key: spm-${{ runner.os }}-${{ hashFiles('Package.swift') }}
                   restore-keys: |
-                      spm-${{ matrix.platform }}-
+                      spm-${{ runner.os }}-
 
             - name: Build (debug)
               run: swift build --configuration debug
@@ -125,6 +87,6 @@ jobs:
               if: failure()
               uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # 6.0.0
               with:
-                  name: swift-build-${{ matrix.os }}
+                  name: swift-build-${{ runner.os }}
                   path: |
                       .build/
