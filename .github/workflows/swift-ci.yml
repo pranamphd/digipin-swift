@@ -73,6 +73,8 @@ jobs:
                   curl --proto '=https' -fsSL https://download.swift.org/swiftly/darwin/swiftly.pkg -o swiftly.pkg
                   installer -pkg swiftly.pkg -target CurrentUserHomeDirectory
 
+                  export PATH="$HOME/.swiftly/bin:$PATH"
+
                   ~/.swiftly/bin/swiftly init --quiet-shell-followup -o -y
                   . "${SWIFTLY_HOME_DIR:-$HOME/.swiftly}/env.sh"
                   hash -r
