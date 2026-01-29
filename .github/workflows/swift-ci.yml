@@ -34,6 +34,15 @@ jobs:
               with:
                   fetch-depth: 0
 
+            - name: Cache Swiftly
+              uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
+              with:
+                  path: |
+                      ~/.swiftly
+                      ~/.local/share/swiftly
+                      ${{ env.LOCALAPPDATA }}\swiftly
+                  key: swiftly-${{ runner.os }}-swift-6.2
+
             # -------------------------------------------------
             # Linux — Swiftly (official prebuilt binary)
             # -------------------------------------------------
@@ -95,6 +104,14 @@ jobs:
             # -------------------------------------------------
             - name: Verify Swift toolchain
               run: swift --version
+
+            - name: Cache SwiftPM
+              uses: actions/cache@v4
+              with:
+                  path: .build
+                  key: spm-${{ runner.os }}-${{ hashFiles('Package.swift') }}
+                  restore-keys: |
+                      spm-${{ runner.os }}-
 
             - name: Build (debug)
               run: swift build --configuration debug
