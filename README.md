@@ -36,10 +36,68 @@ All implementations in this repository aim to faithfully reproduce the behavior 
 
 ---
 
+## Installation
+
+Add Digipin using Swift Package Manager:
+
+```swift
+// swift-tools-version: 6.2
+import PackageDescription
+
+let package = Package(
+    name: "DigipinSwiftExample",
+    dependencies: [
+        .package(
+            url: "https://github.com/pranamphd/digipin-swift.git",
+            from: "1.0.0"
+        )
+    ],
+    targets: [
+        .executableTarget(
+            name: "DigipinSwiftExample",
+            dependencies: [
+                .product(name: "Digipin", package: "digipin-swift")
+            ]
+        )
+    ]
+)
+```
+Import the module in your source code:
+
+```swift
+import Digipin
+```
+
+
+## Usage
+
+```swift
+do {
+    let digipin = try encode(
+        Location(latitude: 28.622788, longitude: 77.213033)
+    )
+    print("DIGIPIN:", digipin)
+    let location = try decode("39J49LL8T4")
+    print("Location:", location)
+} catch let error as DigipinError {
+    print("Error code:", error)
+    print("Error description:", error.localizedDescription)
+} catch {
+    print("Unexpected error:", error)
+}
+```
+
+The decoder accepts lowercase input and separator characters (such as `-`), and rejects invalid symbols or malformed DIGIPIN strings.
+
+Encoding and decoding operations throw `DigipinError` on failure.
+
+---
+
 ## Status
 
 This repository is under active development.
 The library interfaces (function and type signatures) may evolve until the first stable release (`v1.0.0`).
+
 
 ---
 
