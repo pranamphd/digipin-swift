@@ -251,8 +251,9 @@ jobs:
           fi
 
           git rm -rf . || true
-
-          cp -R site/. .
+          git clean -fdx
+          git checkout main -- .gitignore
+          rsync -av --delete site/ ./
 
           ls -lah
 
