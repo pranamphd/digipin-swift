@@ -254,10 +254,12 @@ jobs:
           git rm -rf . || true
 
           cp -R site/. .
+          git rm --cached .build
           ls -lah
 
           test -f index.html
 
+          git rm --cached .build .
           git add .
 
           git status
