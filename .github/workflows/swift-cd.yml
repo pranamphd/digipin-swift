@@ -10,6 +10,9 @@ concurrency:
   group: publish-digipin-swift
   cancel-in-progress: false
 
+permissions:
+  contents: read
+
 jobs:
   release:
     name: Build, Docs, Provenance & Release
