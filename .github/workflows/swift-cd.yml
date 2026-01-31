@@ -209,6 +209,14 @@ jobs:
             --title "$TAG" \
             --generate-notes
 
+      - name: Upload release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "$TAG" \
+            digipin-swift-${TAG}-spm-sbom.json \
+            digipin-swift-${TAG}.doccarchive.zip
+
       # -------------------------------------------------
       # Generate DocC (static, latest only)
       # -------------------------------------------------
@@ -284,14 +292,6 @@ jobs:
           Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
           git push origin gh-pages
-
-      - name: Upload release assets
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release upload "$TAG" \
-            digipin-swift-${TAG}-spm-sbom.json \
-            digipin-swift-${TAG}.doccarchive.zip
 
       - name: Publish GitHub release
         if: env.TEST_MODE != 'true'
