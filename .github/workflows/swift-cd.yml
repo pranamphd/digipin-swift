@@ -241,7 +241,8 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git stash push -m "docc-site" -- site
+
+          git stash push -u -m "docc-site" -- site
           git fetch origin gh-pages || true
 
           if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
@@ -279,8 +280,7 @@ jobs:
 
           Triggered by: ${GITHUB_ACTOR}
           Workflow: ${GITHUB_WORKFLOW}
-          Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
-          EOF
+          Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
           git push origin gh-pages
 
