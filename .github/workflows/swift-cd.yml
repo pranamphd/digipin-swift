@@ -10,10 +10,6 @@ concurrency:
   group: publish-digipin-swift
   cancel-in-progress: false
 
-env:
-  SWIFT_VERSION: "6.2"
-  PACKAGE_NAME: Digipin
-  DOCS_BASE_PATH: digipin-swift
 
 jobs:
   release:
@@ -26,6 +22,11 @@ jobs:
       attestations: write
 
     environment: production
+
+    env:
+      TEST_MODE: ${{ vars.TEST_MODE }}
+      SWIFT_VERSION: "6.2"
+      PACKAGE_NAME: Digipin
 
     steps:
       - name: Checkout
