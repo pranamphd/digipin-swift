@@ -16,7 +16,6 @@ This package focuses on deterministic and repeatable results, operates entirely 
 
 Digipin is suitable for logistics and last-mile delivery systems, address normalization and deduplication workflows, emergency response platforms, fintech KYC and verification flows, and any application that requires precise, offline location identification within India.
 
-
 ## Usage
 
 ```swift
