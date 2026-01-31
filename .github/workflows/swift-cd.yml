@@ -217,18 +217,17 @@ jobs:
         run: |
           set -euo pipefail
 
-          DOCS_DIR="$(mktemp -d)"
+          rm -rf site
+          mkdir -p site
 
           swift package \
-            --allow-writing-to-directory "$DOCS_DIR" \
+            --allow-writing-to-directory site \
             generate-documentation \
             --target "${PACKAGE_NAME}" \
             --disable-indexing \
             --transform-for-static-hosting \
             --hosting-base-path "digipin-swift" \
-            --output-path "$DOCS_DIR"
-
-          echo "DOCS_DIR=$DOCS_DIR" >> "$GITHUB_ENV"
+            --output-path site
 
       # -------------------------------------------------
       # Publish latest docs to gh-pages
@@ -239,7 +238,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          rm -rf Digipin.doccarchive site
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -251,13 +250,15 @@ jobs:
             git checkout --orphan gh-pages
           fi
 
-          # Remove old site contents
           git rm -rf . || true
 
-          # Copy new static content
-          cp -R "$DOCS_DIR"/. .
+          cp -R site/. .
+
+          ls -lah
 
           git add .
+
+          git status
 
           if git diff --cached --quiet; then
             echo "No documentation changes to publish."
