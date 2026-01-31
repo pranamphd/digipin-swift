@@ -250,12 +250,13 @@ jobs:
             git checkout --orphan gh-pages
           fi
 
-          git rm -rf . || true
-          git clean -fdx
-          git checkout main -- .gitignore
-          rsync -av --delete site/ ./
-
           ls -lah
+          git rm -rf . || true
+
+          cp -R site/. .
+          ls -lah
+
+          test -f index.html
 
           git add .
 
