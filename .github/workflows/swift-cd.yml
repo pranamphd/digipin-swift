@@ -257,7 +257,7 @@ jobs:
           git rm -rf . || true
           git clean -fdx
 
-          git checkout main -- .gitignore
+          git checkout origin/main -- .gitignore
           git status
 
           git stash pop
