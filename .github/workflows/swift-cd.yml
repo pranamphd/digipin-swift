@@ -241,7 +241,7 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
+          git stash push -m "docc-site" -- site
           git fetch origin gh-pages || true
 
           if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
@@ -251,17 +251,23 @@ jobs:
           fi
 
           ls -lah
+
           git rm -rf . || true
+          git clean -fdx
+
+          git checkout main -- .gitignore
+          git status
+
+          git stash pop
+          git status
 
           cp -R site/. .
-          git rm --cached .build
+          rm -rf site
           ls -lah
 
           test -f index.html
 
-          git rm --cached .build .
           git add .
-
           git status
 
           if git diff --cached --quiet; then
@@ -273,7 +279,8 @@ jobs:
 
           Triggered by: ${GITHUB_ACTOR}
           Workflow: ${GITHUB_WORKFLOW}
-          Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          EOF
 
           git push origin gh-pages
 
