@@ -164,6 +164,7 @@ jobs:
             digipin-swift-${TAG}.doccarchive.zip
 
       - name: Publish GitHub release
+        if: env.TEST_MODE != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release edit "$TAG" --draft=false
