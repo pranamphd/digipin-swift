@@ -16,7 +16,11 @@ let package = Package(
         .library(name: "Digipin", targets: ["Digipin"])
     ],
     targets: [
-        .target(name: "Digipin"),
+        .target(
+            name: "Digipin",
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]),
         .testTarget(name: "DigipinTests", dependencies: ["Digipin"]),
     ]
 )
