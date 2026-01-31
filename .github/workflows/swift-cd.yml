@@ -10,7 +10,6 @@ concurrency:
   group: publish-digipin-swift
   cancel-in-progress: false
 
-
 jobs:
   release:
     name: Build, Docs, Provenance & Release
@@ -168,3 +167,71 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release edit "$TAG" --draft=false
+
+      # -------------------------------------------------
+      # Generate DocC (static, versioned)
+      # -------------------------------------------------
+      - name: Generate DocC (static, versioned)
+        if: env.TEST_MODE != 'true'
+        run: |
+          set -euo pipefail
+
+          DOCS_VERSION="${TAG}"
+
+          rm -rf docs
+          mkdir -p "docs/${DOCS_VERSION}"
+
+          swift package --allow-writing-to-directory docs \
+            generate-documentation \
+            --target "${PACKAGE_NAME}" \
+            --disable-indexing \
+            --transform-for-static-hosting \
+            --hosting-base-path "digipin-swift/${DOCS_VERSION}" \
+            --output-path "docs/${DOCS_VERSION}"
+
+      # -------------------------------------------------
+      # Publish docs to gh-pages (version-preserving)
+      # -------------------------------------------------
+      - name: Publish docs to gh-pages
+        if: env.TEST_MODE != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          DOCS_VERSION="${TAG}"
+
+          # Preserve generated docs across branch switch
+          DOCS_TMP="$(mktemp -d)"
+          cp -R "docs/${DOCS_VERSION}" "$DOCS_TMP/"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin gh-pages || true
+
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+            git rm -rf .
+          fi
+
+          mkdir -p docs
+          rm -rf "docs/${DOCS_VERSION}"
+          cp -R "$DOCS_TMP/${DOCS_VERSION}" "docs/${DOCS_VERSION}"
+
+          git add "docs/${DOCS_VERSION}"
+
+          if git diff --cached --quiet; then
+            echo "No documentation changes to publish."
+            exit 0
+          fi
+
+          git commit -m "docs: publish DocC for ${DOCS_VERSION}
+
+          Triggered by: ${GITHUB_ACTOR}
+          Workflow: ${GITHUB_WORKFLOW}
+          Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+          git push origin gh-pages
