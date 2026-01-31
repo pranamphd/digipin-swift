@@ -242,6 +242,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          git status
           git stash push -u -m "docc-site" -- site
           git fetch origin gh-pages || true
 
