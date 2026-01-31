@@ -1,0 +1,167 @@
+name: CD — digipin-swift
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+concurrency:
+  group: publish-digipin-swift
+  cancel-in-progress: false
+
+env:
+  SWIFT_VERSION: "6.2"
+  PACKAGE_NAME: Digipin
+  DOCS_BASE_PATH: digipin-swift
+
+jobs:
+  release:
+    name: Build, Docs, Provenance & Release
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+        with:
+          fetch-depth: 0
+
+      - name: Set tag
+        run: |
+          set -euo pipefail
+          echo "TAG=${GITHUB_REF_NAME}" >> "$GITHUB_ENV"
+
+      # -------------------------------------------------
+      # Cache Swift toolchain (safe, version-pinned)
+      # -------------------------------------------------
+      - name: Cache Swiftly
+        id: cache-swiftly
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306
+        with:
+          path: |
+            ~/.swiftly
+            ~/.local/share/swiftly
+          key: swiftly-${{ runner.os }}-swift-${{ env.SWIFT_VERSION }}
+          restore-keys: |
+            swiftly-${{ runner.os }}-
+
+      # -------------------------------------------------
+      # Install Swift (only on cache miss)
+      # -------------------------------------------------
+      - name: Install Swift via Swiftly
+        if: steps.cache-swiftly.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          curl --proto '=https' -fsSL \
+            https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz \
+            -o swiftly.tar.gz
+          tar zxf swiftly.tar.gz
+          ./swiftly init --quiet-shell-followup -o -y
+          . "${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/env.sh"
+          swiftly install "$SWIFT_VERSION"
+          swiftly use "$SWIFT_VERSION" -g -y
+
+      - name: Configure Swift PATH
+        run: echo "$HOME/.local/share/swiftly/bin" >> "$GITHUB_PATH"
+
+      - name: Verify Swift
+        run: swift --version
+
+      # -------------------------------------------------
+      # Build & Test (no .build cache)
+      # -------------------------------------------------
+      - name: Build (release)
+        run: swift build --configuration release
+
+      - name: Test
+        run: swift test --enable-test-discovery
+
+      # -------------------------------------------------
+      # SBOM (SwiftPM native, best-effort)
+      # -------------------------------------------------
+      - name: Generate SwiftPM SBOM
+        run: |
+          set -euo pipefail
+          swift package describe --type json \
+            > digipin-swift-${TAG}-spm-sbom.json
+
+      # -------------------------------------------------
+      # DocC — offline archive (.doccarchive)
+      # -------------------------------------------------
+      - name: Generate DocC archive (offline)
+        run: |
+          set -euo pipefail
+          swift package generate-documentation \
+            --target $PACKAGE_NAME \
+            --output-path ./${PACKAGE_NAME}.doccarchive \
+            --source-service github \
+            --source-service-base-url https://github.com/${{ github.repository }}/blob/${TAG} \
+            --checkout-path "$(pwd)"
+
+      - name: Zip DocC archive
+        run: |
+          set -euo pipefail
+          zip -r digipin-swift-${TAG}.doccarchive.zip ${PACKAGE_NAME}.doccarchive
+
+      # -------------------------------------------------
+      # SLSA provenance
+      # -------------------------------------------------
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@96278af6caaf10aea03fd8d33a09a777ca52d62f
+        with:
+          subject-path: |
+            .build/**
+            Package.swift
+            digipin-swift-${TAG}-spm-sbom.json
+
+      # -------------------------------------------------
+      # Release safety checks
+      # -------------------------------------------------
+      - name: Abort if release exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "ERROR: Release $TAG already exists."
+            exit 1
+          fi
+
+      - name: Detect prerelease
+        run: |
+          if [[ "$TAG" =~ -(alpha|beta|rc) ]]; then
+            echo "PRERELEASE=--prerelease" >> "$GITHUB_ENV"
+          else
+            echo "PRERELEASE=" >> "$GITHUB_ENV"
+          fi
+
+      # -------------------------------------------------
+      # Create & publish GitHub release
+      # -------------------------------------------------
+      - name: Create GitHub release (draft)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$TAG" \
+            --draft \
+            $PRERELEASE \
+            --title "$TAG" \
+            --generate-notes
+
+      - name: Upload release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "$TAG" \
+            digipin-swift-${TAG}-spm-sbom.json \
+            digipin-swift-${TAG}.doccarchive.zip
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release edit "$TAG" --draft=false
