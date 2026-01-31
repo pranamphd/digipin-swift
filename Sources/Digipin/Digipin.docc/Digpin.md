@@ -21,7 +21,7 @@ Digipin is suitable for logistics and last-mile delivery systems, address normal
 Add Digipin using Swift Package Manager:
 
 ```swift
-// swift-tools-version: 6.2
+// swift-tools-version: 5.10
 import PackageDescription
 
 let package = Package(
