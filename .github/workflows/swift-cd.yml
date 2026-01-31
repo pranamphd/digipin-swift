@@ -126,28 +126,80 @@ jobs:
       # -------------------------------------------------
       # Release safety checks
       # -------------------------------------------------
-      - name: Abort if release exists
+      - name: Check if GitHub release already exists
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "ERROR: Release $TAG already exists."
-            exit 1
+            echo "RELEASE_EXISTS=true" >> "$GITHUB_ENV"
+            echo "RELEASE_IS_DRAFT=$(gh release view "$TAG" --json isDraft -q '.isDraft')" >> "$GITHUB_ENV"
+          else
+            echo "RELEASE_EXISTS=false" >> "$GITHUB_ENV"
           fi
 
-      - name: Detect prerelease
+      - name: Abort if release already published
+        if: env.RELEASE_EXISTS == 'true' && env.RELEASE_IS_DRAFT != 'true'
         run: |
+          echo "ERROR: Release $TAG already exists and is published."
+          echo "Refusing to modify an immutable release."
+          exit 1
+
+      - name: Detect pre-release
+        run: |
+          set -euo pipefail
           if [[ "$TAG" =~ -(alpha|beta|rc) ]]; then
+            echo "IS_PRERELEASE=true" >> "$GITHUB_ENV"
+          else
+            echo "IS_PRERELEASE=false" >> "$GITHUB_ENV"
+          fi
+
+      - name: Set prerelease flag
+        run: |
+          if [[ "$IS_PRERELEASE" == "true" ]]; then
             echo "PRERELEASE=--prerelease" >> "$GITHUB_ENV"
           else
             echo "PRERELEASE=" >> "$GITHUB_ENV"
           fi
+      - name: Detect release type
+        run: |
+          set -euo pipefail
+          VERSION="${TAG#v}"
+          IFS='.-' read -r MAJOR MINOR PATCH _ <<< "$VERSION"
+
+          echo "MAJOR=$MAJOR" >> "$GITHUB_ENV"
+          echo "MINOR=$MINOR" >> "$GITHUB_ENV"
+          echo "PATCH=$PATCH" >> "$GITHUB_ENV"
+
+          if [[ "$PATCH" == "0" && "$MINOR" == "0" ]]; then
+            echo "RELEASE_TYPE=major" >> "$GITHUB_ENV"
+          elif [[ "$PATCH" == "0" ]]; then
+            echo "RELEASE_TYPE=minor" >> "$GITHUB_ENV"
+          else
+            echo "RELEASE_TYPE=patch" >> "$GITHUB_ENV"
+          fi
+
+      - name: Compute notes start tag
+        if: env.IS_PRERELEASE != 'true'
+        run: |
+          set -euo pipefail
+          {
+            case "$RELEASE_TYPE" in
+              major) echo "START_TAG=v${MAJOR}.0.0" ;;
+              minor) echo "START_TAG=v${MAJOR}.${MINOR}.0" ;;
+              patch)
+                if [[ "$PATCH" -gt 0 ]]; then
+                  echo "START_TAG=v${MAJOR}.${MINOR}.$((PATCH-1))"
+                fi
+              ;;
+            esac
+          } >> "$GITHUB_ENV"
 
       # -------------------------------------------------
       # Create & publish GitHub release
       # -------------------------------------------------
       - name: Create GitHub release (draft)
+        if: env.RELEASE_EXISTS != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -157,25 +209,11 @@ jobs:
             --title "$TAG" \
             --generate-notes
 
-      - name: Upload release assets
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release upload "$TAG" \
-            digipin-swift-${TAG}-spm-sbom.json \
-            digipin-swift-${TAG}.doccarchive.zip
-
-      - name: Publish GitHub release
-        if: env.TEST_MODE != 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release edit "$TAG" --draft=false
-
       # -------------------------------------------------
       # Generate DocC (static, latest only)
       # -------------------------------------------------
       - name: Generate DocC (static, latest)
-        if: env.TEST_MODE != 'true' && env.PRERELEASE == ''
+        if: env.TEST_MODE != 'true' && env.IS_PRERELEASE != 'true'
         run: |
           set -euo pipefail
 
@@ -196,12 +234,12 @@ jobs:
       # Publish latest docs to gh-pages
       # -------------------------------------------------
       - name: Publish docs to gh-pages
-        if: env.TEST_MODE != 'true' && env.PRERELEASE == ''
+        if: env.TEST_MODE != 'true' && env.IS_PRERELEASE != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-
+          rm -rf Digipin.doccarchive site
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -233,3 +271,17 @@ jobs:
           Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
           git push origin gh-pages
+
+      - name: Upload release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "$TAG" \
+            digipin-swift-${TAG}-spm-sbom.json \
+            digipin-swift-${TAG}.doccarchive.zip
+
+      - name: Publish GitHub release
+        if: env.TEST_MODE != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release edit "$TAG" --draft=false
