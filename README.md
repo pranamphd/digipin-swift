@@ -98,6 +98,9 @@ Encoding and decoding operations throw `DigipinError` on failure.
 This repository is under active development.
 The library interfaces (function and type signatures) may evolve until the first stable release (`v1.0.0`).
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fpranamphd%2Fdigipin-swift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/pranamphd/digipin-swift)
+
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fpranamphd%2Fdigipin-swift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/pranamphd/digipin-swift)
 
 ---
 

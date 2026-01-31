@@ -84,7 +84,7 @@ jobs:
         run: swift build --configuration release
 
       - name: Test
-        run: swift test --enable-test-discovery
+        run: swift test
 
       # -------------------------------------------------
       # SBOM (SwiftPM native, best-effort)
