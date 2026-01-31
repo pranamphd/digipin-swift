@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "title": "Digipin — Swift Documentation"
+  },
+  "features": {
+    "docs": {
+      "quickNavigation": {
+        "enable": true
+      }
+    }
+  }
+}

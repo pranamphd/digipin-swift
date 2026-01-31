@@ -1,0 +1,54 @@
+{
+  "": {
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/master.swiftdeps"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/Sources/Digipin/Constants.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Constants.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Constants.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Constants~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Constants.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Constants.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/Sources/Digipin/Decode.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Decode.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Decode.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Decode~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Decode.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Decode.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/Sources/Digipin/Encode.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Encode.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Encode.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Encode~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Encode.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Encode.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/Sources/Digipin/Errors.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Errors.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Errors.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Errors~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Errors.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Errors.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/Sources/Digipin/Location.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Location.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Location.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Location~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Location.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Location.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/Sources/Digipin/Normalize.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Normalize.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Normalize.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Normalize~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Normalize.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Normalize.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/Sources/Digipin/Validation.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Validation.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Validation.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Validation~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Validation.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/Digipin.build/Validation.dia"
+  }
+}

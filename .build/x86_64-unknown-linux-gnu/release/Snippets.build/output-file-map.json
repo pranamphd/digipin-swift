@@ -1,0 +1,19 @@
+{
+  "": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/Snippets.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/Snippets.o",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/master.swiftdeps"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-plugin/Sources/Snippets/Model/Snippet.swift": {
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/Snippet.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/Snippet~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/Snippet.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/Snippet.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-plugin/Sources/Snippets/Parsing/SnippetParser.swift": {
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/SnippetParser.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/SnippetParser~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/SnippetParser.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/release/Snippets.build/SnippetParser.dia"
+  }
+}

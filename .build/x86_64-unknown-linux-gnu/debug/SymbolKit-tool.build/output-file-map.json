@@ -1,0 +1,320 @@
+{
+  "": {
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/master.swiftdeps"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/Mixin/Mixin+Equals.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Equals.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Equals.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Equals~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Equals.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Equals.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/Mixin/Mixin+Hash.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Hash.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Hash.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Hash~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Hash.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin+Hash.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/Mixin/Mixin.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mixin.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/LineList/LineList.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/LineList.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/LineList.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/LineList~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/LineList.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/LineList.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/LineList/SourceRange/Position.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Position.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Position.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Position~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Position.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Position.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/LineList/SourceRange/SourceRange.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceRange.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceRange.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceRange~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceRange.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceRange.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Metadata.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Metadata.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Metadata.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Metadata~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Metadata.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Metadata.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Module.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Module.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Module.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Module~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Module.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Module.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/OperatingSystem.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/OperatingSystem.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/OperatingSystem.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/OperatingSystem~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/OperatingSystem.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/OperatingSystem.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Platform.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Platform.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Platform.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Platform~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Platform.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Platform.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Relationship/Relationship.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Relationship.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Relationship.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Relationship~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Relationship.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Relationship.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Relationship/RelationshipKind.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/RelationshipKind.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/RelationshipKind.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/RelationshipKind~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/RelationshipKind.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/RelationshipKind.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Relationship/SourceOrigin.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceOrigin.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceOrigin.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceOrigin~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceOrigin.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SourceOrigin.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Relationship/Swift/GenericConstraints.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraints.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraints.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraints~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraints.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraints.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Relationship/Swift/Swift.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Swift.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Swift.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Swift~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Swift.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Swift.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/SemanticVersion.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SemanticVersion.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SemanticVersion.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SemanticVersion~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SemanticVersion.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SemanticVersion.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/AccessControl.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AccessControl.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AccessControl.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AccessControl~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AccessControl.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AccessControl.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Availability/Availability.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Availability.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Availability.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Availability~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Availability.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Availability.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Availability/AvailabilityItem.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AvailabilityItem.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AvailabilityItem.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AvailabilityItem~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AvailabilityItem.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/AvailabilityItem.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Availability/Domain.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Domain.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Domain.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Domain~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Domain.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Domain.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/DeclarationFragments/DeclarationFragments.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/DeclarationFragments.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/DeclarationFragments.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/DeclarationFragments~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/DeclarationFragments.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/DeclarationFragments.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/DeclarationFragments/Fragment/Fragment.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Fragment.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Fragment.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Fragment~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Fragment.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Fragment.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/DeclarationFragments/Fragment/FragmentKind.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FragmentKind.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FragmentKind.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FragmentKind~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FragmentKind.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FragmentKind.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/FunctionSignature/FunctionParameter.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionParameter.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionParameter.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionParameter~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionParameter.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionParameter.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/FunctionSignature/FunctionSignature.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionSignature.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionSignature.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionSignature~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionSignature.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/FunctionSignature.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Identifier.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Identifier.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Identifier.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Identifier~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Identifier.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Identifier.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/KindIdentifier.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/KindIdentifier.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/KindIdentifier.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/KindIdentifier~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/KindIdentifier.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/KindIdentifier.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Location.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Location.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Location.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Location~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Location.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Location.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Mutability.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mutability.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mutability.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mutability~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mutability.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Mutability.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Names.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Names.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Names.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Names~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Names.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Names.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/SPI.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SPI.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SPI.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SPI~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SPI.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SPI.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Snippet.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Snippet.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Snippet.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Snippet~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Snippet.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Snippet.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Swift/Extension.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Extension.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Extension.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Extension~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Extension.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Extension.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Swift/GenericConstraint.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraint.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraint.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraint~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraint.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericConstraint.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Swift/GenericParameter.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericParameter.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericParameter.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericParameter~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericParameter.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GenericParameter.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Swift/Generics.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Generics.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Generics.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Generics~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Generics.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Generics.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Swift/Namespace.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Namespace.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Namespace.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Namespace~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Namespace.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Namespace.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/Symbol.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Symbol.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Symbol.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Symbol~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Symbol.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/Symbol.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/Symbol/SymbolKind.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolKind.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolKind.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolKind~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolKind.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolKind.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/SymbolGraph/SymbolGraph.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolGraph.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolGraph.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolGraph~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolGraph.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/SymbolGraph.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/UnifiedSymbolGraph/GraphCollector.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GraphCollector.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GraphCollector.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GraphCollector~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GraphCollector.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/GraphCollector.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/UnifiedSymbolGraph/UnifiedSymbol+Encodable.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol+Encodable.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol+Encodable.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol+Encodable~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol+Encodable.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol+Encodable.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/UnifiedSymbolGraph/UnifiedSymbol.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbol.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/UnifiedSymbolGraph/UnifiedSymbolGraph+Encodable.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph+Encodable.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph+Encodable.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph+Encodable~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph+Encodable.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph+Encodable.dia"
+  },
+  "/home/runner/work/digipin-swift/digipin-swift/.build/checkouts/swift-docc-symbolkit/Sources/SymbolKit/UnifiedSymbolGraph/UnifiedSymbolGraph.swift": {
+    "dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph.d",
+    "object": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph.swift.o",
+    "swiftmodule": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph.swiftdeps",
+    "diagnostics": "/home/runner/work/digipin-swift/digipin-swift/.build/x86_64-unknown-linux-gnu/debug/SymbolKit-tool.build/UnifiedSymbolGraph.dia"
+  }
+}
