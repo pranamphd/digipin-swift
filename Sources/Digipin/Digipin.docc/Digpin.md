@@ -16,18 +16,60 @@ This package focuses on deterministic and repeatable results, operates entirely 
 
 Digipin is suitable for logistics and last-mile delivery systems, address normalization and deduplication workflows, emergency response platforms, fintech KYC and verification flows, and any application that requires precise, offline location identification within India.
 
-## Usage
+## Installation
+
+Add Digipin using Swift Package Manager:
+
+```swift
+// swift-tools-version: 6.2
+import PackageDescription
+
+let package = Package(
+    name: "DigipinSwiftExample",
+    dependencies: [
+        .package(
+            url: "https://github.com/pranamphd/digipin-swift.git",
+            from: "0.1.0"
+        )
+    ],
+    targets: [
+        .executableTarget(
+            name: "DigipinSwiftExample",
+            dependencies: [
+                .product(name: "Digipin", package: "digipin-swift")
+            ]
+        )
+    ]
+)
+```
+Import the module in your source code:
 
 ```swift
 import Digipin
-
-let digipin = try encode(
-    latitude: 28.622788,
-    longitude: 77.213033
-)
-
-let location = try decode("39J49LL8T4")
 ```
+
+
+## Usage
+
+```swift
+do {
+    let digipin = try encode(
+        Location(latitude: 28.622788, longitude: 77.213033)
+    )
+    print("DIGIPIN:", digipin)
+    let location = try decode("39J49LL8T4")
+    print("Location:", location)
+} catch let error as DigipinError {
+    print("Error code:", error)
+    print("Error description:", error.localizedDescription)
+} catch {
+    print("Unexpected error:", error)
+}
+```
+
+The decoder accepts lowercase input and separator characters (such as `-`), and rejects invalid symbols or malformed DIGIPIN strings.
+
+Encoding and decoding operations throw `DigipinError` on failure.
 
 ## Platform Support
 
