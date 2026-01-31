@@ -179,16 +179,18 @@ jobs:
         run: |
           set -euo pipefail
 
-          rm -rf site
-          mkdir site
+          DOCS_DIR="$(mktemp -d)"
 
-          swift package --allow-writing-to-directory site \
+          swift package \
+            --allow-writing-to-directory "$DOCS_DIR" \
             generate-documentation \
             --target "${PACKAGE_NAME}" \
             --disable-indexing \
             --transform-for-static-hosting \
             --hosting-base-path "digipin-swift" \
-            --output-path site
+            --output-path "$DOCS_DIR"
+
+          echo "DOCS_DIR=$DOCS_DIR" >> "$GITHUB_ENV"
 
       # -------------------------------------------------
       # Publish latest docs to gh-pages
@@ -214,8 +216,8 @@ jobs:
           # Remove old site contents
           git rm -rf . || true
 
-          # Copy new static site
-          cp -R site/. .
+          # Copy new static content
+          cp -R "$DOCS_DIR"/. .
 
           git add .
 
