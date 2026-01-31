@@ -239,7 +239,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          rm -rf Digipin.doccarchive site
+          rm -rf Digipin.doccarchive .build site
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -270,7 +270,7 @@ jobs:
           Workflow: ${GITHUB_WORKFLOW}
           Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
-          git push origin gh-pages
+          git push origin gh-pages --force
 
       - name: Upload release assets
         env:
