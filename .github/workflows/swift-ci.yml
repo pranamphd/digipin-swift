@@ -15,13 +15,18 @@ on:
 permissions:
     contents: read
 
-env:
-    SWIFT_VERSION: "6.2"
-
 jobs:
     test:
-        name: Build & Test
+        name: Build & Test (Swift ${{ matrix.swift }})
         runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                swift: ["5.10", "6.0", "6.1", "6.2"]
+
+        env:
+            SWIFT_VERSION: ${{ matrix.swift }}
 
         steps:
             - name: Checkout
@@ -58,10 +63,6 @@ jobs:
                   swiftly install $SWIFT_VERSION || true
                   swiftly use $SWIFT_VERSION -g -y
 
-            # -------------------------------------------------
-            # Core CI steps
-            # -------------------------------------------------
-
             - name: Configure Swift PATH (Linux)
               run: |
                   echo "$HOME/.local/share/swiftly/bin" >> "$GITHUB_PATH"
@@ -69,19 +70,14 @@ jobs:
             - name: Verify Swift toolchain
               run: swift --version
 
-            - name: Cache SwiftPM
-              uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
-              with:
-                  path: .build
-                  key: spm-${{ runner.os }}-${{ hashFiles('Package.swift') }}
-                  restore-keys: |
-                      spm-${{ runner.os }}-
-
+            # -------------------------------------------------
+            # Core CI steps
+            # -------------------------------------------------
             - name: Build (debug)
               run: swift build --configuration debug
 
             - name: Test
-              run: swift test 
+              run: swift test
 
             - name: Upload build artifacts (on failure)
               if: failure()
