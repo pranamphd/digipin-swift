@@ -81,7 +81,7 @@ jobs:
               run: swift build --configuration debug
 
             - name: Test
-              run: swift test --enable-test-discovery
+              run: swift test 
 
             - name: Upload build artifacts (on failure)
               if: failure()
